@@ -10,9 +10,8 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 
 public class TestBase {
@@ -37,7 +36,9 @@ public class TestBase {
 	      fail(verificationErrorString);
 	    }
 	  }
-
+	
+	
+	// Group methods
 	protected void returnToGroupPage() {
 		driver.findElement(By.linkText("group page")).click();
 	}
@@ -62,11 +63,53 @@ public class TestBase {
 	protected void gotoGroupsPage() {
 		driver.findElement(By.linkText("groups")).click();
 	}
+	
+	// Contact methods
+	protected void returnToHomePage() {
+	  driver.findElement(By.linkText("home page")).click();
+	}
 
+	protected void submitContactCreation() {
+	  driver.findElement(By.name("submit")).click();
+	}
+
+	protected void fillContactForm(ContactData group) {
+	  driver.findElement(By.name("firstname")).clear();
+	  driver.findElement(By.name("firstname")).sendKeys(group.firstname);
+	  driver.findElement(By.name("lastname")).clear();
+	  driver.findElement(By.name("lastname")).sendKeys(group.lastname);
+	  driver.findElement(By.name("address")).clear();
+	  driver.findElement(By.name("address")).sendKeys(group.address);
+	  driver.findElement(By.name("home")).clear();
+	  driver.findElement(By.name("home")).sendKeys(group.telhome);
+	  driver.findElement(By.name("mobile")).clear();
+	  driver.findElement(By.name("mobile")).sendKeys(group.telmobile);
+	  driver.findElement(By.name("work")).clear();
+	  driver.findElement(By.name("work")).sendKeys(group.telwork);
+	  driver.findElement(By.name("email")).clear();
+	  driver.findElement(By.name("email")).sendKeys(group.email);
+	  driver.findElement(By.name("email2")).clear();
+	  driver.findElement(By.name("email2")).sendKeys(group.email2);
+	  new Select(driver.findElement(By.name("bday"))).selectByVisibleText(group.bday);
+	  new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(group.bmonth);
+	  driver.findElement(By.name("byear")).clear();
+	  driver.findElement(By.name("byear")).sendKeys(group.byear);
+	  driver.findElement(By.name("address2")).clear();
+	  driver.findElement(By.name("address2")).sendKeys(group.addresssec);
+	  driver.findElement(By.name("phone2")).clear();
+	  driver.findElement(By.name("phone2")).sendKeys(group.telsec);
+	}
+
+	protected void initContactCreation() {
+	  driver.findElement(By.linkText("add new")).click();
+	}
+	
+	// General method	
 	protected void openMainPage() {
 		driver.get(baseUrl + "/addressbookv4.1.4/");
 	}
 
+	
 	
 	private boolean isElementPresent(By by) {
 	    try {
@@ -100,5 +143,5 @@ public class TestBase {
 	      acceptNextAlert = true;
 	    }
 	  }
-
+	
 }
