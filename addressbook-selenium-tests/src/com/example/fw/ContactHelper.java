@@ -1,7 +1,6 @@
 package com.example.fw;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
 
 import com.example.tests.ContactData;
 
@@ -12,42 +11,33 @@ public class ContactHelper extends HelperBase{
 	}
 
 	public void initContactCreation() {
-	  driver.findElement(By.linkText("add new")).click();
+	  click(By.linkText("add new"));
 	}
 
-	public void fillContactForm(ContactData group) {
-	  driver.findElement(By.name("firstname")).clear();
-	  driver.findElement(By.name("firstname")).sendKeys(group.firstname);
-	  driver.findElement(By.name("lastname")).clear();
-	  driver.findElement(By.name("lastname")).sendKeys(group.lastname);
-	  driver.findElement(By.name("address")).clear();
-	  driver.findElement(By.name("address")).sendKeys(group.address);
-	  driver.findElement(By.name("home")).clear();
-	  driver.findElement(By.name("home")).sendKeys(group.telhome);
-	  driver.findElement(By.name("mobile")).clear();
-	  driver.findElement(By.name("mobile")).sendKeys(group.telmobile);
-	  driver.findElement(By.name("work")).clear();
-	  driver.findElement(By.name("work")).sendKeys(group.telwork);
-	  driver.findElement(By.name("email")).clear();
-	  driver.findElement(By.name("email")).sendKeys(group.email);
-	  driver.findElement(By.name("email2")).clear();
-	  driver.findElement(By.name("email2")).sendKeys(group.email2);
-	  new Select(driver.findElement(By.name("bday"))).selectByVisibleText(group.bday);
-	  new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(group.bmonth);
-	  driver.findElement(By.name("byear")).clear();
-	  driver.findElement(By.name("byear")).sendKeys(group.byear);
-	  driver.findElement(By.name("address2")).clear();
-	  driver.findElement(By.name("address2")).sendKeys(group.addresssec);
-	  driver.findElement(By.name("phone2")).clear();
-	  driver.findElement(By.name("phone2")).sendKeys(group.telsec);
+	public void fillContactForm(ContactData contact) {
+	  type(By.name("firstname"), contact.firstname);
+	  type(By.name("lastname"), contact.lastname);
+	  type(By.name("address"), contact.address);
+	  type(By.name("home"), contact.telhome);
+	  type(By.name("mobile"), contact.telmobile);
+	  type(By.name("work"), contact.telwork);
+	  type(By.name("email"), contact.email);
+	  type(By.name("email2"), contact.email2);
+	  selectByText(By.name("bday"), contact.bday);
+	  selectByText(By.name("bmonth"), contact.bmonth);
+	  type(By.name("byear"), contact.byear);
+	 // selectByText(By.name("new_group"), "group 1");
+	  type(By.name("address2"), contact.addresssec);
+	  type(By.name("phone2"), contact.telsec);
+
 	}
 
 	public void submitContactCreation() {
-		driver.findElement(By.name("submit")).click();
+		click(By.name("submit"));
 	}
 
 	public void returnToHomePage() {
-		driver.findElement(By.linkText("home page")).click();
+		click(By.linkText("home page"));
 	}
 
 }

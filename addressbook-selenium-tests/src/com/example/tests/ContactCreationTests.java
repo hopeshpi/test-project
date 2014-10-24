@@ -8,21 +8,21 @@ public class ContactCreationTests extends TestBase {
     public void testNonEmptyContactCreation() throws Exception {
 	  app.getNavigationHelper().openMainPage();
       app.getContactHelper().initContactCreation();
-      ContactData group = new ContactData();
-      group.firstname = "first name";
-      group.lastname = "last name";
-      group.address = "address";
-      group.telhome = "tel home";
-      group.telmobile = "tel mobile";
-      group.telwork = "tel work";
-      group.email = "e-mail";
-      group.email2 = "e-mail2";
-      group.bday = "1";
-      group.bmonth = "January";
-      group.byear = "2000";
-      group.addresssec = "addres sec";
-      group.telsec = "tel sec";
-	  app.getContactHelper().fillContactForm(group);
+      ContactData contact = new ContactData();
+      contact.firstname = "first name";
+      contact.lastname = "last name";
+      contact.address = "address";
+      contact.telhome = "tel home";
+      contact.telmobile = "tel mobile";
+      contact.telwork = "tel work";
+      contact.email = "e-mail";
+      contact.email2 = "e-mail2";
+      contact.bday = "1";
+      contact.bmonth = "January";
+      contact.byear = "2000";
+      contact.addresssec = "addres sec";
+      contact.telsec = "tel sec";
+	  app.getContactHelper().fillContactForm(contact);
       app.getContactHelper().submitContactCreation();
       app.getContactHelper().returnToHomePage();
    }
