@@ -2,9 +2,10 @@ package com.example.tests;
 
 import org.testng.annotations.Test;
 
-public class AlsoCreationTests extends TestBase {
+public class AlsoGroupCreationTests extends TestBase {
 	
-  @Test
+	
+  @Test(enabled = false)
   	public void testNonEmptyGroupCreation() throws Exception {
 	  app.getNavigationHelper().openMainPage();
 	  app.getNavigationHelper().gotoGroupsPage();
@@ -18,7 +19,7 @@ public class AlsoCreationTests extends TestBase {
 	  app.getGroupHelper().returnToGroupPage();
   	}
   
-  @Test
+  @Test(enabled = false)
 	public void testEmptyGroupCreation() throws Exception {
 	  app.getNavigationHelper().openMainPage();
 	  app.getNavigationHelper().gotoGroupsPage();
