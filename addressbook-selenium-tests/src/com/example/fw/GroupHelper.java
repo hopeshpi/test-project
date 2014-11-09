@@ -59,7 +59,7 @@ public class GroupHelper extends HelperBase {
 		group.name = title.substring("Select (".length(), title.length() - ")".length());
 		groups.add(group);
 	}
-		return groups ;
+		return groups;
 	}
 
 }
