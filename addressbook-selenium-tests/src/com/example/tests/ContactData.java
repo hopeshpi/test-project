@@ -1,19 +1,19 @@
 package com.example.tests;
 
 public class ContactData implements Comparable<ContactData> {
-	public String firstname;
-	public String lastname;
-	public String address;
-	public String telhome;
-	public String telmobile;
-	public String telwork;
-	public String email;
-	public String email2;
-	public String bday;
-	public String bmonth;
-	public String byear;
-	public String addresssec;
-	public String telsec;
+	private String firstname;
+	private String lastname;
+	private String address;
+	private String telhome;
+	private String telmobile;
+	private String telwork;
+	private String email;
+	private String email2;
+	private String bday;
+	private String bmonth;
+	private String byear;
+	private String addresssec;
+	private String telsec;
 
 	public ContactData() {		
 	}
@@ -87,6 +87,30 @@ public class ContactData implements Comparable<ContactData> {
 		}
 		else 
 		return this.lastname.toLowerCase().compareTo(other.lastname.toLowerCase());
+	}
+
+	public ContactData withFirstname(String firstname) {
+		this.firstname = firstname;
+		return this;
+	}
+
+	public ContactData withLastname(String lastname) {
+		this.lastname = lastname;
+		return this;
+	}
+
+	public ContactData withaAdress(String address) {
+		this.address = address;
+		return this;
+	}
+
+	public ContactData withTelhome(String telhome) {
+		this.telhome = telhome;
+		return this;
+	}
+
+	public ContactData withTelmobile(String telmobile) {
+		return this;
 	}
 		
 }
