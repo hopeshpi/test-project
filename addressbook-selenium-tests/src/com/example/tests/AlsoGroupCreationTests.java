@@ -7,13 +7,13 @@ public class AlsoGroupCreationTests extends TestBase {
 	
   @Test(enabled = false)
   	public void testNonEmptyGroupCreation() throws Exception {
-	  app.getNavigationHelper().openMainPage();
-	  app.getNavigationHelper().gotoGroupsPage();
+	  app.navigateTo().mainPage();
+	  app.navigateTo().groupsPage();
 	  app.getGroupHelper().initGroupCreation();
 	  GroupData group = new GroupData();
-	  group.name = "group name 1";
-	  group.header = "header 1";
-	  group.footer = "footer 1";
+	 // group.name = "group name 1";
+	 // group.header = "header 1";
+	 // group.footer = "footer 1";
 	  app.getGroupHelper().fillGroupForm(group);
 	  app.getGroupHelper().submitGroupCreation();
 	  app.getGroupHelper().returnToGroupPage();
@@ -21,8 +21,8 @@ public class AlsoGroupCreationTests extends TestBase {
   
   @Test(enabled = false)
 	public void testEmptyGroupCreation() throws Exception {
-	  app.getNavigationHelper().openMainPage();
-	  app.getNavigationHelper().gotoGroupsPage();
+	  app.navigateTo().mainPage();
+	  app.navigateTo().groupsPage();
 	  app.getGroupHelper().initGroupCreation();
 	  app.getGroupHelper().fillGroupForm(new GroupData("", "", ""));
 	  app.getGroupHelper().submitGroupCreation();

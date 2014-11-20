@@ -14,51 +14,57 @@ public class ContactHelper extends HelperBase{
 		super(manager);
 	}
 
-	public void initContactCreation() {
+	public ContactHelper initContactCreation() {
 	  click(By.linkText("add new"));
+	  return this;
 	}
 
-	public void fillContactForm(ContactData contact) {
-	  type(By.name("firstname"), contact.firstname);
-	  type(By.name("lastname"), contact.lastname);
-	  type(By.name("address"), contact.address);
-	  type(By.name("home"), contact.telhome);
-	  type(By.name("mobile"), contact.telmobile);
-	  type(By.name("work"), contact.telwork);
-	  type(By.name("email"), contact.email);
-	  type(By.name("email2"), contact.email2);
-	  selectByText(By.name("bday"), contact.bday);
-	  selectByText(By.name("bmonth"), contact.bmonth);
-	  type(By.name("byear"), contact.byear);
+	public ContactHelper fillContactForm(ContactData contact) {
+	  type(By.name("firstname"), contact.getFirstname());
+	  type(By.name("lastname"), contact.getLastname());
+	  type(By.name("address"), contact.getAddress());
+	  type(By.name("home"), contact.getTelhome());
+	  type(By.name("mobile"), contact.getTelmobile());
+	  type(By.name("work"), contact.getTelwork());
+	  type(By.name("email"), contact.getEmail());
+	  type(By.name("email2"), contact.getEmail2());
+	  selectByText(By.name("bday"), contact.getBday());
+	  selectByText(By.name("bmonth"), contact.getBmonth());
+	  type(By.name("byear"), contact.getByear());
 	 // selectByText(By.name("new_group"), "group 1");
-	  type(By.name("address2"), contact.addresssec);
-	  type(By.name("phone2"), contact.telsec);
-
+	  type(By.name("address2"), contact.getAddresssec());
+	  type(By.name("phone2"), contact.getTelsec());
+	  return this;
 	}
 
-	public void submitContactCreation() {
+	public ContactHelper submitContactCreation() {
 		click(By.name("submit"));
+		  return this;
 	}
 
-	public void returnToHomePage() {
+	public ContactHelper returnToHomePage() {
 		click(By.linkText("home page"));
+		  return this;
 	}
 
-	public void deleteContact(int index) {
+	public ContactHelper deleteContact(int index) {
 		editContactByIndex(index);
 		click(By.cssSelector("input[value=Delete]"));
+		  return this;
 	}
 
 	private void editContactByIndex(int index) {
 		click(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr[" + (index + 2) + "]/td[7]/a"));
 	}
 
-	public void initContactModification(int index) {
+	public ContactHelper initContactModification(int index) {
 		editContactByIndex(index);
+		  return this;
 	}
 
-	public void submitContactModification() {
+	public ContactHelper submitContactModification() {
 		click(By.cssSelector("input[value=Update]"));	
+		  return this;
 	}
 	
 	public List<ContactData> getContacts() {
@@ -66,10 +72,9 @@ public class ContactHelper extends HelperBase{
 		List<WebElement> contactsFnameInTable = driver.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[3]"));
 		List<WebElement> contactsLnameInTable = driver.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[2]"));
 		for (int index = 0; index < contactsFnameInTable.size() - 1; index ++) {
-			ContactData contact = new ContactData();		
-			contact.firstname = contactsFnameInTable.get(index).getText();
-			contact.lastname = contactsLnameInTable.get(index).getText();
-			contacts.add(contact);			
+			String firstname = contactsFnameInTable.get(index).getText();
+			String lastname = contactsLnameInTable.get(index).getText();
+			contacts.add(new ContactData().withFirstname(firstname).withLastname(lastname));			
 		}	
 		return contacts;
 	}

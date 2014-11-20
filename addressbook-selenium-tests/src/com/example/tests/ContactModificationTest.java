@@ -12,7 +12,7 @@ public class ContactModificationTest extends TestBase {
 	
 	@Test(dataProvider = "randomValidContactGenerator")
 	public void modifySomeContact(ContactData contact) {
-	   app.getNavigationHelper().openMainPage();
+	   app.navigateTo().mainPage();
 	   
 	   // save old state
 	   List<ContactData> oldList = app.getContactHelper().getContacts();
@@ -21,10 +21,11 @@ public class ContactModificationTest extends TestBase {
 	   int index = rnd.nextInt(oldList.size()-1);   
 	   
 	   //actions
-	   app.getContactHelper().initContactModification(index);
-	   app.getContactHelper().fillContactForm(contact);
-	   app.getContactHelper().submitContactModification();
-	   app.getContactHelper().returnToHomePage();
+	   app.getContactHelper()
+	   	.initContactModification(index)
+	   	.fillContactForm(contact)
+	   	.submitContactModification()
+	   	.returnToHomePage();
 	   
 	   // save new state
 	   List<ContactData> newList = app.getContactHelper().getContacts();

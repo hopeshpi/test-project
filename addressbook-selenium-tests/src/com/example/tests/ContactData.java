@@ -110,7 +110,100 @@ public class ContactData implements Comparable<ContactData> {
 	}
 
 	public ContactData withTelmobile(String telmobile) {
+		this.telmobile = telmobile;
 		return this;
+	}
+
+	public ContactData withTelwork(String telwork) {
+		this.telwork = telwork;
+		return this;
+	}
+
+	public ContactData withEmail(String email) {
+		this.email = email;
+		return this;
+	}
+
+	public ContactData withEmail2(String email2) {
+		this.email2 = email2;
+		return this;
+	}
+
+	public ContactData withBday(String bday) {
+		this.bday = bday;
+		return this;
+	}
+
+	public ContactData withBmonth(String bmonth) {
+		this.bmonth = bmonth;
+		return this;
+	}
+
+	public ContactData withByear(String byear) {
+		this.byear = byear;
+		return this;
+	}
+
+	public ContactData withAddresssec(String addresssec) {
+		this.addresssec = addresssec;
+		return this;
+	}
+
+	public ContactData withTelsec(String telsec) {
+		this.telsec = telsec;
+		return this;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String getTelhome() {
+		return telhome;
+	}
+
+	public String getTelmobile() {
+		return telmobile;
+	}
+
+	public String getTelwork() {
+		return telwork;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getEmail2() {
+		return email2;
+	}
+
+	public String getBday() {
+		return bday;
+	}
+
+	public String getBmonth() {
+		return bmonth;
+	}
+
+	public String getByear() {
+		return byear;
+	}
+
+	public String getAddresssec() {
+		return addresssec;
+	}
+
+	public String getTelsec() {
+		return telsec;
 	}
 		
 }
