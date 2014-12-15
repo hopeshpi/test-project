@@ -99,7 +99,7 @@ public class ContactData implements Comparable<ContactData> {
 		return this;
 	}
 
-	public ContactData withaAdress(String address) {
+	public ContactData withAddress(String address) {
 		this.address = address;
 		return this;
 	}
