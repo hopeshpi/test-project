@@ -50,6 +50,11 @@ public class ContactDataGenerator {
 	}
 	  writer.close();
   }
+	  
+	public static List<ContactData> loadContactFromCsvFile(File file) {
+	  return null;
+  }
+
 
 	public static List<ContactData> generateRandomContacts(int amount) {
 	  List<ContactData> list = new ArrayList<ContactData>();

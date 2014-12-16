@@ -1,6 +1,7 @@
 package com.example.tests;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 
 import org.testng.annotations.DataProvider;
@@ -15,7 +16,7 @@ import com.example.utils.SortedListOf;
 public class GroupCreationTests extends TestBase {
 	
 	@DataProvider
-	public Iterator<Object[]> groupsFromFile() {
+	public Iterator<Object[]> groupsFromFile() throws IOException {
 		return wrapGroupsForDataProvider(loadGroupsFromCsvFile(new File("groups.txt"))).iterator();
 	}	
 
