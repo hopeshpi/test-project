@@ -1,0 +1,35 @@
+<list>
+  <contact>
+    <firstname>test-347268125</firstname>
+    <lastname></lastname>
+    <address></address>
+    <telhome></telhome>
+    <telmobile>test1824881277</telmobile>
+    <telwork>test-261133244</telwork>
+    <email>test-699727106</email>
+    <email2>test-1548715112</email2>
+    <bday>30</bday>
+    <bmonth>May</bmonth>
+    <byear>1886</byear>
+    <addresssec></addresssec>
+    <telsec>test241640369</telsec>
+  </contact>
+  <contact>
+    <firstname>test275861143</firstname>
+    <lastname>test1780960351</lastname>
+    <address>test1016685523
+test
+test
+test</address>
+    <telhome>test-1860203107</telhome>
+    <telmobile>test120538579</telmobile>
+    <telwork></telwork>
+    <email>test-1555247692</email>
+    <email2>test-1626432080</email2>
+    <bday>11</bday>
+    <bmonth>April</bmonth>
+    <byear></byear>
+    <addresssec>test-232613362</addresssec>
+    <telsec>test-1851130508</telsec>
+  </contact>
+</list>
